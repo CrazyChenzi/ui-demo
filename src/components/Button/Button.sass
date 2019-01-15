@@ -1,21 +1,28 @@
 @import '../main.sass'
+$color: #515a6e
+$shallow-color: #dcdee2
 
 .btn
   background-color: #fff
   cursor: pointer
   border: 1px solid transparent
-  border-color: #dcdee2
+  border-color: $shallow-color
   border-radius: 4px
   padding: 6px 15px
   transition: color .2s linear,background-color .2s linear,border .2s linear,box-shadow .2s linear
   vertical-align: middle
   line-height: 1.5
-  color: #515a6e
+  color: $color
   font-size: 12px
   outline: 0
   &:hover
     border-color: $btn-hover-color
     color: $btn-hover-color
+  &.btn-default-loading
+    background-color: $shallow-color
+    border-color: $shallow-color
+    &:hover
+      color: $color
 .btn-primary
   background-color: $btn-default-color
   border-color: $btn-default-color
@@ -23,3 +30,15 @@
   &:hover
     background-color: $btn-hover-color
     color: #fff
+  &.btn-primary-loading
+    background-color: #76B4F5
+    border-color: #76B4F5
+.btn-loading
+  pointer-events: none
+  position: relative
+.btn-icon
+  margin-right: 5px
+  vertical-align: middle
+  line-height: 1.5
+  position: relative
+  bottom: 1px
