@@ -12,7 +12,7 @@
     </Button>
     <Button icon="spinner">Icon</Button>
     <div>
-      <Select></Select>
+      <Select style="width: 200px; margin-top: 20px"></Select>
     </div>
   </div>
 </template>

@@ -1,1 +1,40 @@
 @import '../main.sass'
+
+.b-select
+  display: inline-block
+  width: 100%
+  box-sizing: border-box
+  vertical-align: middle
+  color: $color
+  font-size: 14px
+  line-height: normal
+  .b-select-selection
+    display: block
+    box-sizing: border-box
+    outline: 0
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+    cursor: pointer
+    position: relative
+    background-color: #fff
+    border-radius: 4px
+    border: 1px solid #dcdee2
+    transition: all .2s ease-in-out
+    height: 32px
+    &:hover
+      border-color: $hover-color
+    &.b-select-icon-down
+      position: absolute
+      top: 50%
+      right: 8px
+      line-height: 1
+      margin-top: -7px
+      color: #808695
+      transition: all .2s ease-in-out
+  .b-select-selection-visible
+    &.b-select-icon-down
+      -webkit-transform: rotate(180deg)
+      transform: rotate(180deg)
+      display: inline-block
