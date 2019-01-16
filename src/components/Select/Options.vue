@@ -1,10 +1,8 @@
 <template>
-  <div>
-    
-  </div>
+  <li :class="isFocused" :value="value" @click="handleClick"><slot></slot></li>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 import Icon from '../Icon/Icon.vue';
 
 @Component({
@@ -13,6 +11,15 @@ import Icon from '../Icon/Icon.vue';
   },
 })
 export default class Select extends Vue {
+  @Prop({ type: [String, Number], default: '' }) private value!: string | number;
 
+  private get isFocused() {
+    return [
+      'b-select-item',
+    ];
+  }
+  private handleClick(event: any) {
+    this.$emit('click');
+  }
 }
 </script>

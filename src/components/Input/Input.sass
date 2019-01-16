@@ -1,1 +1,27 @@
 @import '../main.sass'
+
+.b-input-wrapper
+  position: relative
+  .b-input
+    display: inline-block
+    width: 100%
+    height: 32px
+    line-height: 1.5
+    padding: 4px 7px
+    font-size: 12px
+    border: 1px solid $shallow-color
+    border-radius: 4px
+    color: $color
+    background-color: #fff
+    background-image: none
+    transition: border .2s ease-in-out,background .2s ease-in-out,box-shadow .2s ease-in-out
+    box-sizing: border-box
+    &:hover
+      border-color: $hover-color
+  .input-icon
+    position: absolute
+    top: 50%
+    right: 8px
+    line-height: 1
+    margin-top: -7px
+    color: #808695
