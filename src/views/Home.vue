@@ -15,13 +15,13 @@
       <Input style="width: 200px; margin-top: 20px" icon="spinner" v-model="inputValue" @focus="inputFocus" @blur="inputBlur" />
     </div>
     <div>
-      <Select style="width: 200px; margin-top: 20px"></Select>
+      <Select style="width: 200px; margin-top: 20px" :value.sync="value" :options="list" :defaultVNode="{value: 'value', text: 'name'}"></Select>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import Button from '@/components/Button/Button.vue';
 import Select from '@/components/Select/Select.vue';
 import Input from '@/components/Input/Input.vue';
@@ -37,10 +37,29 @@ export default class Home extends Vue {
   private loading: boolean = false;
   private loading1: boolean = false;
   private inputValue: number | string = '这是value值';
+  private list: object[] = [
+    {
+      name: '上海',
+      value: 1,
+    },
+    {
+      name: '北京',
+      value: 2,
+    },
+    {
+      name: '西安',
+      value: 3,
+    },
+  ];
+  private value: number = 1;
   public data() {
     return {
       msg: 'welcome ts',
     };
+  }
+  @Watch('value')
+  private getValue(val: any) {
+    // console.log(val);
   }
   private startLoading(e: any) {
     this.loading = true;
