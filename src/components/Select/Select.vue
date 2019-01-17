@@ -1,5 +1,5 @@
 <template>
-  <div class="b-select" >
+  <div class="b-select" @mouseleave="hasMouseHoverHead = false" @mouseenter="hasMouseHoverHead = true">
     <div :class="selectHeaderClasses">
       <Input placeholder="请选择" v-model="currentValue" readonly @blur="closeOptions" @click="handleOptions"/>
       <Icon name="angle-down" scale="0.8" class="b-select-icon-down"></Icon>
@@ -37,6 +37,7 @@ export default class Select extends Vue {
   private showOptions: boolean = false;
   private currentIndex: number | string = '';
   private currentValue: number | string | object[] = '';
+  private hasMouseHoverHead: boolean = false;
   private list: object[] = [
     {
       name: '上海',
@@ -66,7 +67,7 @@ export default class Select extends Vue {
     this.showOptions = !this.showOptions;
   }
   private closeOptions() {
-    if (this.showOptions) {
+    if (this.showOptions && !this.hasMouseHoverHead) {
       this.showOptions = false;
     }
   }
